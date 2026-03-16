@@ -485,20 +485,25 @@ header.scrolled .burger div, header.static .burger div {
 }
 
 .feature-item {
-    padding: 40px 20px;
-    background: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
 }
 
 .feature-item:hover {
-    transform: translateY(-10px);
+    transform: none;
 }
 
 .feature-item img {
-    width: 60px;
-    margin-bottom: 20px;
+    width: 140px;
+    height: auto;
+    margin: 0;
 }
 
 .feature-item h3 {
@@ -915,12 +920,13 @@ footer p {
     }
 
     .feature-item {
-        padding: 22px 14px;
+        padding: 20px 14px;
+        min-height: 170px;
     }
 
     .feature-item img {
-        width: 44px;
-        margin-bottom: 12px;
+        width: 110px;
+        margin-bottom: 0;
     }
 
     .feature-item h3 {
@@ -1032,5 +1038,13 @@ footer p {
 
     .apartment-content h3 {
         font-size: 1.25rem;
+    }
+
+    .feature-item {
+        min-height: 150px;
+    }
+
+    .feature-item img {
+        width: 120px;
     }
 }
