@@ -33,6 +33,11 @@ body {
     background-color: var(--white);
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
 }
@@ -113,6 +118,7 @@ header.scrolled .burger div, header.static .burger div {
 /* Hero Section */
 #hero {
     height: 100vh;
+    height: 100svh;
     margin-top: 0;
 }
 
@@ -747,15 +753,15 @@ footer p {
     }
 
     .nav-links {
-        position: absolute;
-        right: 0px;
+        position: fixed;
+        left: 0;
         height: 100vh;
         top: 0;
         background-color: var(--white);
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        width: 100vw;
         transform: translateX(100%);
         transition: transform 0.5s ease-in;
         padding-top: 110px;
@@ -775,13 +781,14 @@ footer p {
         display: block;
     }
     
-    #hero {
-        height: 75vh;
-    }
-
     .slide {
         padding-left: 20px;
+        padding-right: 20px;
         padding-bottom: 35px;
+    }
+
+    .slide-content {
+        max-width: 100%;
     }
 
     .hero-top-text {
@@ -994,12 +1001,9 @@ footer p {
         height: 48px;
     }
 
-    #hero {
-        height: 70vh;
-    }
-
     .slide {
         padding-left: 18px;
+        padding-right: 18px;
         padding-bottom: 28px;
     }
 
