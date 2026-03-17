@@ -476,6 +476,19 @@ header.scrolled .burger div, header.static .burger div {
     transform: scale(1.05);
 }
 
+.apartment-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.apartment-gallery-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
 /* Features */
 .features-grid {
     display: grid;
@@ -919,6 +932,16 @@ footer p {
         font-size: 0.78rem;
     }
 
+    .apartment-gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .apartment-gallery-grid img {
+        height: 240px;
+        border-radius: 12px;
+    }
+
     .feature-item {
         padding: 20px 14px;
         min-height: 170px;
@@ -1038,6 +1061,10 @@ footer p {
 
     .apartment-content h3 {
         font-size: 1.25rem;
+    }
+
+    .apartment-gallery-grid img {
+        height: 220px;
     }
 
     .feature-item {
