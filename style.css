@@ -859,6 +859,12 @@ footer {
     border-top: 1px solid #eee; /* Leggera linea di separazione */
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .footer-logo img {
     max-width: 260px;
     height: auto;
@@ -933,7 +939,8 @@ footer p {
 
 
      .features-grid {
-         grid-template-columns: 1fr 1fr;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 18px;
      }
     
     .hero-main-title {
