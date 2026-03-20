@@ -255,6 +255,23 @@ header.scrolled .burger div, header.static .burger div {
     margin: 0 auto;
 }
 
+.gallery-hero {
+    height: 40vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('foto-home/hero.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.gallery-hero h1 {
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+}
+
 /* Content Grid */
 .content-grid {
     display: grid;
@@ -476,20 +493,122 @@ header.scrolled .burger div, header.static .burger div {
     transform: scale(1.05);
 }
 
-.apartment-gallery-grid {
-    column-count: 4;
-    column-gap: 0;
-    line-height: 0;
+.mosaic-grid,
+.apartment-gallery-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: 10px;
+    gap: 10px;
 }
 
-.apartment-gallery-grid img {
+.mosaic-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f1efe9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    grid-row-end: span 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.apartment-gallery-grid > img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f1efe9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    grid-row-end: span 1;
+    cursor: pointer;
+}
+
+.apartment-gallery-grid > img:hover {
+    transform: scale(1.02);
+    transition: var(--transition);
+}
+
+.mosaic-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    border-radius: 0;
     display: block;
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
+}
+
+.mosaic-item:hover img {
+    transform: scale(1.02);
+    transition: var(--transition);
+}
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.lightbox-overlay.is-open {
+    display: flex;
+}
+
+.lightbox-frame {
+    position: relative;
+    width: min(1100px, 100%);
+    height: min(80vh, 760px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    border: 0;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.lightbox-close {
+    top: 10px;
+    right: 10px;
+}
+
+.lightbox-prev {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .apartment-services-list {
@@ -805,8 +924,11 @@ footer p {
          padding: 40px 30px;
      }
 
-    .apartment-gallery-grid {
-        column-count: 3;
+    .mosaic-grid,
+    .apartment-gallery-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 10px;
     }
 
 
@@ -888,7 +1010,8 @@ footer p {
     }
 
     .features-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
     }
     
     .form-row {
@@ -901,15 +1024,18 @@ footer p {
     }
 
     .hero-buttons {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
-        gap: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
     }
 
     .btn-outline,
     .btn-solid {
-        padding: 10px 18px;
-        font-size: 0.75rem;
+        padding: 9px 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0.8px;
     }
 
     .section {
@@ -957,17 +1083,17 @@ footer p {
     }
 
     .service-label {
-        bottom: 16px;
-        left: 16px;
-        padding: 8px 14px;
-        font-size: 0.75rem;
-        letter-spacing: 1px;
+        bottom: 12px;
+        left: 12px;
+        padding: 6px 10px;
+        font-size: 0.68rem;
+        letter-spacing: 0.8px;
     }
 
     .services-images-split {
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        height: 260px;
+        gap: 10px;
+        height: 210px;
     }
 
     .service-split-item {
@@ -1014,23 +1140,27 @@ footer p {
         font-size: 0.78rem;
     }
 
-    .apartment-gallery-grid {
-        column-count: 2;
+    .mosaic-grid,
+    .apartment-gallery-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 8px;
+    }
+
+    .mosaic-item {
+        border-radius: 10px;
     }
 
     .feature-item {
-        padding: 20px 14px;
-        min-height: 170px;
+        gap: 10px;
     }
 
     .feature-item img {
-        width: 140px;
-        margin-bottom: 0;
+        width: 95px;
     }
 
-    .feature-item h3 {
+    .feature-label {
         font-size: 1.05rem;
-        margin-bottom: 10px;
     }
 
     .contact-wrapper {
@@ -1144,24 +1274,47 @@ footer p {
         font-size: 1.25rem;
     }
 
-    .apartment-gallery-grid {
-        column-count: 1;
+    .hero-buttons {
+        justify-content: center;
     }
 
-    .apartment-gallery-grid img {
-        height: auto;
+    .btn-outline,
+    .btn-solid {
+        padding: 9px 12px;
+        font-size: 0.7rem;
+        letter-spacing: 0.6px;
     }
 
-    .feature-item {
-        min-height: 150px;
+    .mosaic-grid,
+    .apartment-gallery-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .lightbox-frame {
+        height: min(82vh, 640px);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
 
     .feature-item img {
-        width: 120px;
+        width: 78px;
     }
 
     .services-images-split {
-        height: 220px;
-        gap: 10px;
+        height: 170px;
+        gap: 8px;
+    }
+
+    .service-label {
+        bottom: 10px;
+        left: 10px;
+        padding: 6px 10px;
+        font-size: 0.62rem;
+        letter-spacing: 0.7px;
     }
 }
