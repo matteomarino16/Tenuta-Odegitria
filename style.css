@@ -852,11 +852,11 @@ textarea {
 
 /* Footer */
 footer {
-    background-color: var(--white); /* Sfondo bianco */
-    color: var(--text-color); /* Testo scuro */
+    background-color: var(--accent-color);
+    color: #000;
     padding: 60px 0 30px;
     text-align: center;
-    border-top: 1px solid #eee; /* Leggera linea di separazione */
+    border-top: 1px solid rgba(0,0,0,0.12);
 }
 
 .footer-content {
@@ -878,15 +878,15 @@ footer {
 
 footer p {
     font-size: 0.95rem;
-    opacity: 0.8;
-    color: #555;
+    opacity: 0.9;
+    color: #000;
     margin-bottom: 10px;
 }
 
 .footer-credit {
     display: inline-block;
     margin-top: 18px;
-    color: #555;
+    color: #000;
     text-decoration: none;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -895,7 +895,7 @@ footer p {
 }
 
 .footer-credit:hover {
-    color: var(--accent-color);
+    opacity: 0.75;
 }
 
 /* Mobile Responsive */
@@ -1001,8 +1001,8 @@ footer p {
     }
     
     .slide {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 14px;
+        padding-right: 14px;
         padding-bottom: 35px;
     }
 
@@ -1032,8 +1032,8 @@ footer p {
 
     .hero-buttons {
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-wrap: wrap;
         gap: 8px;
     }
@@ -1249,8 +1249,8 @@ footer p {
     }
 
     .slide {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 12px;
+        padding-right: 12px;
         padding-bottom: 28px;
     }
 
@@ -1282,7 +1282,7 @@ footer p {
     }
 
     .hero-buttons {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .btn-outline,
