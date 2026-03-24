@@ -52,6 +52,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const setupScrollReveal = () => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const elements = Array.from(document.querySelectorAll('.section-header, .section-header-top, .content-grid, .apartment-row, .feature-item, .service-split-item, footer'));
+
+        if (prefersReducedMotion || window.innerWidth <= 1024) {
+            elements.forEach((el) => {
+                el.classList.add('reveal', 'is-visible');
+            });
+            return;
+        }
+
+        elements.forEach((el) => {
+            el.classList.add('reveal', 'is-visible');
+        });
+        return;
+
+        elements.forEach((el, idx) => {
+            el.classList.add('reveal');
+            if (el.classList.contains('content-grid')) {
+                el.classList.add(idx % 2 === 0 ? 'reveal-left' : 'reveal-right');
+            } else if (el.classList.contains('apartment-row')) {
+                el.classList.add('reveal-scale');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+        elements.forEach((el) => observer.observe(el));
+    };
+
     const lightbox = (() => {
         const overlay = document.createElement('div');
         overlay.className = 'lightbox-overlay';
@@ -90,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let startX = null;
         let startY = null;
         let lastWheelAt = 0;
+        let prevOverflowHtml = '';
+        let prevOverflowBody = '';
 
         const render = () => {
             const item = items[index];
@@ -102,14 +140,18 @@ document.addEventListener('DOMContentLoaded', () => {
             items = newItems;
             index = newIndex;
             overlay.classList.add('is-open');
+            prevOverflowHtml = document.documentElement.style.overflow || '';
+            prevOverflowBody = document.body.style.overflow || '';
             document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
             render();
         };
 
         const close = () => {
             overlay.classList.remove('is-open');
             img.src = '';
-            document.documentElement.style.overflow = '';
+            document.documentElement.style.overflow = prevOverflowHtml;
+            document.body.style.overflow = prevOverflowBody;
         };
 
         const next = () => {
@@ -173,53 +215,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return { open };
     })();
 
-    const applyMosaicLayout = (grid) => {
-        if (!grid) return;
-        const computed = window.getComputedStyle(grid);
-        const rowHeight = parseFloat(computed.getPropertyValue('grid-auto-rows')) || 10;
-        const rowGap = parseFloat(computed.getPropertyValue('gap')) || 0;
-        const anchorItems = grid.querySelectorAll('.mosaic-item');
-        const imgItems = anchorItems.length ? [] : grid.querySelectorAll(':scope > img');
-        const items = anchorItems.length ? anchorItems : imgItems;
-
-        items.forEach((item) => {
-            const media = item.tagName === 'IMG' ? item : item.querySelector('img');
-            if (!media) return;
-            const height = media.getBoundingClientRect().height;
-            if (!height) return;
-            const span = Math.ceil((height + rowGap) / (rowHeight + rowGap));
-            item.style.gridRowEnd = `span ${span}`;
-        });
-    };
-
-    const setupMosaicGalleries = () => {
-        const grids = document.querySelectorAll('.mosaic-grid, .apartment-gallery-grid, .gallery-grid');
-        grids.forEach((grid) => {
-            const imgs = grid.querySelectorAll('img');
-            imgs.forEach((img) => {
-                if (img.complete) return;
-                img.addEventListener('load', () => applyMosaicLayout(grid), { once: true });
-            });
-            requestAnimationFrame(() => applyMosaicLayout(grid));
-        });
-
-        let resizeTimer = null;
-        window.addEventListener('resize', () => {
-            if (resizeTimer) window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(() => {
-                grids.forEach((grid) => applyMosaicLayout(grid));
-            }, 120);
-        });
-    };
-
     const setupLightboxGalleries = () => {
+        let lastTouchMoveAt = 0;
+        document.addEventListener('touchmove', () => {
+            lastTouchMoveAt = Date.now();
+        }, { passive: true });
+
         const onClick = (e) => {
+            if (Date.now() - lastTouchMoveAt < 350) return;
             const link = e.target.closest('.mosaic-item');
             const directImg = !link ? (e.target.closest('.apartment-gallery-grid > img') || e.target.closest('.gallery-grid > img')) : null;
             if (!link && !directImg) return;
             e.preventDefault();
 
-            const grid = (link || directImg).closest('.mosaic-grid, .apartment-gallery-grid, .gallery-grid');
+            const grid = (link || directImg).closest('.mosaic-grid, .apartment-gallery-grid, .gallery-grid, .home-gallery-grid');
             if (!grid) return;
 
             const links = Array.from(grid.querySelectorAll('.mosaic-item'));
@@ -238,8 +247,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', onClick);
     };
 
-    setupMosaicGalleries();
     setupLightboxGalleries();
+    setupScrollReveal();
 });
 
 // Keyframe for nav links animation
