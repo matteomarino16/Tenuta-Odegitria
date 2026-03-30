@@ -144,20 +144,21 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0; /* Più spazio in alto */
+    padding: 15px 0; /* Ridotto da 30px */
 }
 
 .logo img {
-    height: 80px; /* Logo più grande */
+    height: 65px; /* Ridotto da 80px */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
+    align-items: center; /* Aggiunto per allineamento verticale */
 }
 
 .nav-links li {
-    margin-left: 35px;
+    margin-left: 25px; /* Ridotto da 35px */
 }
 
 .nav-links a {
@@ -178,10 +179,45 @@ nav {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: 24px;
+    margin-left: 15px;
 }
 
-.lang-link {
+/* Booking CTA in Nav */
+.btn-nav-booking {
+    background: var(--accent-color);
+    color: #000 !important;
+    padding: 10px 20px !important; /* Ridotto */
+    border-radius: 50px;
+    font-size: 0.8rem !important; /* Ridotto */
+    margin-left: 15px; /* Aggiustato */
+    font-weight: 700 !important;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.btn-nav-booking:hover {
+    background: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color) !important;
+}
+
+.booking-section {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.booking-section .section-header {
+    margin-bottom: 40px;
+}
+
+.kross-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lang-switch {
     text-decoration: none;
     color: var(--white);
     font-weight: 700;
@@ -1235,6 +1271,23 @@ footer p {
         background: rgba(0,0,0,0.06);
         font-size: 0.75rem;
         padding: 7px 10px;
+    }
+
+    .btn-nav-booking {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 80%;
+        text-align: center;
+        background: var(--primary-color);
+        color: var(--white) !important;
+        font-weight: 700;
+        padding: 15px 30px !important;
+        border: none;
+    }
+
+    .btn-nav-booking:hover {
+        background: var(--accent-color);
+        color: #000 !important;
     }
     
     .burger {
