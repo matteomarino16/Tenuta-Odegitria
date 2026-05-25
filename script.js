@@ -52,6 +52,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const matrimoniForms = document.querySelectorAll('.matrimoni-contact-form');
+    matrimoniForms.forEach((form) => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const data = new FormData(form);
+            const nome = (data.get('nome') || '').toString().trim();
+            const cognome = (data.get('cognome') || '').toString().trim();
+            const dataMatrimonio = (data.get('data_matrimonio') || '').toString().trim();
+            const to = (form.getAttribute('data-to') || 'info@tenutaodegitria.it').trim();
+
+            const subjectParts = ['Richiesta matrimonio'];
+            const fullName = [nome, cognome].filter(Boolean).join(' ');
+            if (fullName) subjectParts.push(fullName);
+            if (dataMatrimonio) subjectParts.push(dataMatrimonio);
+            const subject = subjectParts.join(' - ');
+
+            const elements = Array.from(form.elements).filter((el) => {
+                if (!el || !('name' in el)) return false;
+                if (!el.name) return false;
+                if (el.disabled) return false;
+                if (el.type === 'submit' || el.type === 'button') return false;
+                return true;
+            });
+
+            const lines = elements.map((el) => {
+                const id = el.id || '';
+                const label = id ? form.querySelector(`label[for="${CSS.escape(id)}"]`) : null;
+                const labelText = (label ? label.textContent : el.name).trim();
+
+                let value = (el.value || '').toString().trim();
+                if (el.tagName === 'SELECT') {
+                    const opt = el.options && el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null;
+                    value = (opt && opt.text ? opt.text : value).trim();
+                }
+
+                return `${labelText}: ${value}`;
+            });
+
+            const body = lines.join('\n');
+            const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailto;
+        });
+    });
+
     const setupScrollReveal = () => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const elements = Array.from(document.querySelectorAll('.section-header, .section-header-top, .content-grid, .apartment-row, .feature-item, .service-split-item, footer'));

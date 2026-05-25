@@ -63,11 +63,11 @@
             <div class="slider">
                 <div class="slide active" style="background-image: url('../foto-matrimoni/heromatrimoni.png');">
                     <div class="slide-content">
-                        <p class="hero-top-text">— WEDDINGS &amp; EVENTS</p>
-                        <h1 class="hero-main-title">Weddings at Tenuta Odegitria</h1>
+                        <p class="hero-top-text">— MARIAGES &amp; ÉVÉNEMENTS</p>
+                        <h1 class="hero-main-title">Mariages à Tenuta Odegitria</h1>
                         <div class="hero-buttons">
-                            <a href="index.html#contatti" class="btn btn-solid">BOOK NOW</a>
-                            <a href="index.html" class="btn btn-outline">BACK TO HOME</a>
+                            <a href="#contattaci" class="btn btn-solid">RÉSERVER</a>
+                            <a href="index.html" class="btn btn-outline">RETOUR À L’ACCUEIL</a>
                         </div>
                     </div>
                 </div>
@@ -543,7 +543,7 @@
                 <div class="matrimoni-sezione21-contacts">
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-phone"></i>
-                        <span>+39 3386510960 or +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.com">info@tenutaodegitria.com</a></span>
+                        <span>+39 3386510960 or +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.it">info@tenutaodegitria.it</a></span>
                     </div>
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-location-dot"></i>
@@ -569,6 +569,68 @@
                     <div class="matrimoni-sezione21-tag">EXCLUSIVITY</div>
                     <div class="matrimoni-sezione21-tag">FREEDOM</div>
                     <div class="matrimoni-sezione21-tag">TERRITORY</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contattaci" class="section bg-light matrimoni-contattaci">
+            <div class="container">
+                <p class="tenuta-subtitle">— CONTACT</p>
+                <h2 class="matrimoni-contattaci-title">Nous contacter</h2>
+                <div class="matrimoni-contattaci-box">
+                    <form class="matrimoni-contact-form" data-to="info@tenutaodegitria.it">
+                        <div class="matrimoni-form-grid">
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-nome">Prénom</label>
+                                <input id="mc-fr-nome" name="nome" type="text" autocomplete="given-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-cognome">Nom</label>
+                                <input id="mc-fr-cognome" name="cognome" type="text" autocomplete="family-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-telefono">Téléphone</label>
+                                <input id="mc-fr-telefono" name="telefono" type="tel" autocomplete="tel" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-email">Email</label>
+                                <input id="mc-fr-email" name="email" type="email" autocomplete="email" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-data">Date du mariage</label>
+                                <input id="mc-fr-data" name="data_matrimonio" type="date" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-pasto">Déjeuner ou dîner</label>
+                                <select id="mc-fr-pasto" name="pasto" required>
+                                    <option value="" selected disabled>Sélectionner</option>
+                                    <option value="dejeuner">Déjeuner</option>
+                                    <option value="diner">Dîner</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-ospiti">Nombre d’invités</label>
+                                <input id="mc-fr-ospiti" name="numero_ospiti" type="number" min="1" step="1" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-fr-cerimonia">Cérémonie</label>
+                                <select id="mc-fr-cerimonia" name="cerimonia" required>
+                                    <option value="" selected disabled>Choisir</option>
+                                    <option value="eglise">Église</option>
+                                    <option value="civile">Civile</option>
+                                    <option value="symbolique">Symbolique</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field matrimoni-form-field--full">
+                                <label for="mc-fr-note">Notes complémentaires</label>
+                                <textarea id="mc-fr-note" name="note" rows="5" placeholder="Indiquez vos demandes ou informations utiles"></textarea>
+                            </div>
+                        </div>
+                        <div class="matrimoni-form-actions">
+                            <button type="submit" class="btn btn-solid">ENVOYER</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>

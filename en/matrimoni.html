@@ -66,7 +66,7 @@
                         <p class="hero-top-text">— WEDDINGS &amp; EVENTS</p>
                         <h1 class="hero-main-title">Weddings at Tenuta Odegitria</h1>
                         <div class="hero-buttons">
-                            <a href="index.html#contatti" class="btn btn-solid">BOOK NOW</a>
+                            <a href="#contattaci" class="btn btn-solid">BOOK NOW</a>
                             <a href="index.html" class="btn btn-outline">BACK TO HOME</a>
                         </div>
                     </div>
@@ -543,7 +543,7 @@
                 <div class="matrimoni-sezione21-contacts">
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-phone"></i>
-                        <span>+39 3386510960 or +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.com">info@tenutaodegitria.com</a></span>
+                        <span>+39 3386510960 or +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.it">info@tenutaodegitria.it</a></span>
                     </div>
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-location-dot"></i>
@@ -569,6 +569,68 @@
                     <div class="matrimoni-sezione21-tag">EXCLUSIVITY</div>
                     <div class="matrimoni-sezione21-tag">FREEDOM</div>
                     <div class="matrimoni-sezione21-tag">TERRITORY</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contattaci" class="section bg-light matrimoni-contattaci">
+            <div class="container">
+                <p class="tenuta-subtitle">— CONTACT</p>
+                <h2 class="matrimoni-contattaci-title">Contact us</h2>
+                <div class="matrimoni-contattaci-box">
+                    <form class="matrimoni-contact-form" data-to="info@tenutaodegitria.it">
+                        <div class="matrimoni-form-grid">
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-nome">First name</label>
+                                <input id="mc-en-nome" name="nome" type="text" autocomplete="given-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-cognome">Last name</label>
+                                <input id="mc-en-cognome" name="cognome" type="text" autocomplete="family-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-telefono">Phone</label>
+                                <input id="mc-en-telefono" name="telefono" type="tel" autocomplete="tel" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-email">Email</label>
+                                <input id="mc-en-email" name="email" type="email" autocomplete="email" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-data">Wedding date</label>
+                                <input id="mc-en-data" name="data_matrimonio" type="date" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-pasto">Lunch or dinner</label>
+                                <select id="mc-en-pasto" name="pasto" required>
+                                    <option value="" selected disabled>Select</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-ospiti">Number of guests</label>
+                                <input id="mc-en-ospiti" name="numero_ospiti" type="number" min="1" step="1" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-en-cerimonia">Ceremony</label>
+                                <select id="mc-en-cerimonia" name="cerimonia" required>
+                                    <option value="" selected disabled>Choose</option>
+                                    <option value="church">Church</option>
+                                    <option value="civil">Civil</option>
+                                    <option value="symbolic">Symbolic</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field matrimoni-form-field--full">
+                                <label for="mc-en-note">Additional notes</label>
+                                <textarea id="mc-en-note" name="note" rows="5" placeholder="Write any requests or useful info"></textarea>
+                            </div>
+                        </div>
+                        <div class="matrimoni-form-actions">
+                            <button type="submit" class="btn btn-solid">SEND</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>

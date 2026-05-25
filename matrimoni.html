@@ -11,12 +11,12 @@
     <meta property="og:description" content="Matrimoni in Tenuta Odegitria: location in Valle d’Itria a Martina Franca (TA) con ampi spazi esterni, giardino e gazebo per eventi.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
-    <meta property="og:image" content="foto-matrimoni/m1.jpg">
+    <meta property="og:image" content="foto-matrimoni/heromatrimoni.png">
     <meta property="og:image:alt" content="Matrimoni in Tenuta Odegitria">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Matrimoni | Tenuta Odegitria">
     <meta name="twitter:description" content="Matrimoni in Tenuta Odegitria: location in Valle d’Itria a Martina Franca (TA) con ampi spazi esterni, giardino e gazebo per eventi.">
-    <meta name="twitter:image" content="foto-matrimoni/m1.jpg">
+    <meta name="twitter:image" content="foto-matrimoni/heromatrimoni.png">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -72,8 +72,8 @@
                         <p class="hero-top-text">— MATRIMONI &amp; EVENTI</p>
                         <h1 class="hero-main-title">Matrimoni in Tenuta Odegitria</h1>
                         <div class="hero-buttons">
-                            <a href="index.html#contatti" class="btn btn-solid">PRENOTA ORA</a>
-                            <a href="index.html#eventi" class="btn btn-outline">TORNA ALLA HOME</a>
+                            <a href="#contattaci" class="btn btn-solid">PRENOTA ORA</a>
+                            <a href="index.html" class="btn btn-outline">TORNA ALLA HOME</a>
                         </div>
                     </div>
                 </div>
@@ -549,7 +549,7 @@
                 <div class="matrimoni-sezione21-contacts">
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-phone"></i>
-                        <span>+39 3386510960 o +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.com">info@tenutaodegitria.com</a></span>
+                        <span>+39 3386510960 o +39 3396745290 - Mail: <a href="mailto:info@tenutaodegitria.it">info@tenutaodegitria.it</a></span>
                     </div>
                     <div class="matrimoni-sezione21-contact">
                         <i class="fa-solid fa-location-dot"></i>
@@ -575,6 +575,68 @@
                     <div class="matrimoni-sezione21-tag">ESCLUSIVITÀ</div>
                     <div class="matrimoni-sezione21-tag">LIBERTÀ</div>
                     <div class="matrimoni-sezione21-tag">TERRITORIO</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contattaci" class="section bg-light matrimoni-contattaci">
+            <div class="container">
+                <p class="tenuta-subtitle">— CONTATTACI</p>
+                <h2 class="matrimoni-contattaci-title">Contattaci</h2>
+                <div class="matrimoni-contattaci-box">
+                    <form class="matrimoni-contact-form" data-to="info@tenutaodegitria.it">
+                        <div class="matrimoni-form-grid">
+                            <div class="matrimoni-form-field">
+                                <label for="mc-nome">Nome</label>
+                                <input id="mc-nome" name="nome" type="text" autocomplete="given-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-cognome">Cognome</label>
+                                <input id="mc-cognome" name="cognome" type="text" autocomplete="family-name" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-telefono">Telefono</label>
+                                <input id="mc-telefono" name="telefono" type="tel" autocomplete="tel" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-email">Mail</label>
+                                <input id="mc-email" name="email" type="email" autocomplete="email" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-data">Data matrimonio</label>
+                                <input id="mc-data" name="data_matrimonio" type="date" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-pasto">Pranzo o cena</label>
+                                <select id="mc-pasto" name="pasto" required>
+                                    <option value="" selected disabled>Seleziona</option>
+                                    <option value="pranzo">Pranzo</option>
+                                    <option value="cena">Cena</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-ospiti">Numero ospiti</label>
+                                <input id="mc-ospiti" name="numero_ospiti" type="number" min="1" step="1" required>
+                            </div>
+                            <div class="matrimoni-form-field">
+                                <label for="mc-cerimonia">Cerimonia</label>
+                                <select id="mc-cerimonia" name="cerimonia" required>
+                                    <option value="" selected disabled>Scegli</option>
+                                    <option value="chiesa">Chiesa</option>
+                                    <option value="civile">Civile</option>
+                                    <option value="simbolica">Simbolica</option>
+                                    <option value="altro">Altro</option>
+                                </select>
+                            </div>
+                            <div class="matrimoni-form-field matrimoni-form-field--full">
+                                <label for="mc-note">Note aggiuntive</label>
+                                <textarea id="mc-note" name="note" rows="5" placeholder="Scrivi qui eventuali richieste o informazioni utili"></textarea>
+                            </div>
+                        </div>
+                        <div class="matrimoni-form-actions">
+                            <button type="submit" class="btn btn-solid">INVIA</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
